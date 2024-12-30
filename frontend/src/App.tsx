@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { useState } from 'react';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [darkMode, setDarkMode] = useState(true);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div
+      className={`flex flex-col justify-center items-center gap-10 h-screen ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-gray-800'
+        }`}
+    >
+      <div className="relative w-52 h-52 overflow-hidden">
+        <img
+          src="/portfolio.png"
+          alt="Portfolio icon of rprakashdass"
+          className="w-full h-full object-contain"
+        />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      <div className="inline-flex items-center gap-2">
+        <p>The template is made with ❤️ by</p>
+        <a
+          href="https://www.rprakashdass.in"
+          className="text-blue-500 hover:text-blue-700 underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          rprakashdass
+        </a>
+
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      <button
+        onClick={() => setDarkMode(!darkMode)}
+        className="relative bg-purple-500 shadow px-4 py-2 rounded text-white"
+      >
+        Toggle {darkMode ? 'Light' : 'Dark'} Mode
+      </button>
+    </div>
+  );
 }
 
-export default App
+export default App;
